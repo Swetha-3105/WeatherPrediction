@@ -1,0 +1,36 @@
+
+
+<html >
+  <head></head>
+<body >
+    <mat-card class="card" style="background-image : url(assets/images/village.jpg); " >
+      <mat-card-title class="wlcm" style="color:antiquewhite">Welcome !</mat-card-title>
+      <form #loginForm="ngForm" class="form" [formGroup]="login" (ngSubmit)="onSubmit()"  >
+        <div class="bg"><mat-form-field appearance="fill" ><mat-label for="email">Enter Your Email
+      </mat-label>
+      <input matInput type="email" name="email" formControlName="email" required >
+      <mat-icon matPrefix>email</mat-icon>
+      <mat-error *ngIf="login.value.email">
+       please enter valid email</mat-error>
+       <mat-error *ngIf="!login.valid">Enter Your Email</mat-error>
+      </mat-form-field>
+      </div>
+      
+      <div class="bg">
+        <mat-form-field appearance="fill" ><mat-label for="password">Enter password</mat-label>
+          <input  type="password" formControlName="password" matInput required  id="password" name="password" ngModel> 
+            <mat-icon matPrefix>password</mat-icon>
+            <mat-error *ngIf="!login.valid">Enter Your password</mat-error>
+        </mat-form-field>
+      </div>
+      </form >
+      <mat-card-actions class="btn">
+        <button mat-raised-button  style="background-color: aliceblue; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" 
+        type="submit"  onclick="onSubmit()"  routerLink="/dashboard" [disabled]="!login.valid" ><a   style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color: black;">Login</a></button>
+       
+      </mat-card-actions>
+
+        
+</mat-card>
+</body>
+</html>
